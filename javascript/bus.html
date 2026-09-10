@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Booking System</title>
+  </head>
+  <body>
+    <div
+      style="
+        background-color: aliceblue;
+        border: 2px dotted black;
+        height: 800px;
+        width: 600px;
+      "
+    >
+      <center>
+        <h2>Bus Booking System</h2>
+      </center>
+      <h3>User Informations</h3>
+      <p>Name:<input type="text" /></p>
+      <br />
+      <p>
+        Address:<input type="text" />
+        <select name="Select your city" id="address">
+          <option value="">Ghaziabad</option>
+          <option value="">Greater Noida</option>
+          <option value="">Delhi</option>
+          <option value="">Kanpur</option>
+          <option value="">Jaipur</option>
+        </select>
+      </p>
+      <br />
+      <p>Mobile no.:<input type="tel" /></p>
+      <br />
+      <p>Adhaar no.:<input type="text" /></p>
+      <br />
+      <div>
+     <label><h3>Bus options:</h3></label> 
+    
+       <input type="radio" id="Ac" name="bus options" value="Ac" data-price="500">
+       <label for="Ac">AC</label>
+    
+        <input type="radio" id="Non-Ac" name="bus options" value="Non-Ac" data-price="300">
+        <label for="Non-Ac">Non-AC</label>
+
+        <label for="ticket-count">Number of tickets:</label>
+        <input type="number" id="ticket-count" min="1" step="1" placeholder="Enter quantity">
+        <button type="button" onclick="bookTicket()">Book Ticket</button>
+    </div>
+  </body>
+  <script>
+    function bookTicket() {
+      const selectedBus = document.querySelector('input[name="bus options"]:checked');
+
+      if (!selectedBus) {
+        alert("Please select a bus type.");
+        return;
+      }
+
+      const ticketCount = Number(document.getElementById("ticket-count").value);
+
+      if (!Number.isInteger(ticketCount) || ticketCount < 1) {
+        alert("Please enter a valid number of tickets.");
+        return;
+      }
+
+      const totalPrice = ticketCount * Number(selectedBus.dataset.price);
+      alert(`Tickets: ${ticketCount}\nTotal price: ₹${totalPrice}`);
+    }
+  </script>
+</html>
