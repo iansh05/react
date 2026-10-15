@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder='Enter your name' value={formData.name} onChange={handleChange} />
         <br/>
         <input type="email" name="email" placeholder='Enter your email' value={formData.email} onChange={handleChange} />
