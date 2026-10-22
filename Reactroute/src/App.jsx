@@ -15,7 +15,7 @@ const App = () => {
     </nav>
     <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="/about" element={<About/>} />
+      <Route path="/about" element={<About/>} />]kik,ol0
     </Routes>
     
     </BrowserRouter>
